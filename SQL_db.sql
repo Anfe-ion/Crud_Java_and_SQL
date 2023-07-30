@@ -1,15 +1,19 @@
+/*Creación DB*/
 CREATE DATABASE proyecto_ebikes;
+/*Selección DB*/
 USE proyecto_ebikes;
 
+/*Creación tabla usuarios*/
 CREATE TABLE usuarios (
   id INT AUTO_INCREMENT PRIMARY KEY,
   nombres VARCHAR(50) NOT NULL,
   apellidos VARCHAR(50) NOT NULL,
-  cedula VARCHAR(10) NOT NULL,
+  cedula VARCHAR(10) NOT NULL UNIQUE, /*Se agrega UNIQUE para que no existas cedulas duplicadas*/
   correo_electronico VARCHAR(100) NOT NULL,
   contrasena VARCHAR(100) NOT NULL
 );
 
+/*Inserción de datos*/
 INSERT INTO usuarios (nombres, apellidos, cedula, correo_electronico, contrasena)
 VALUES
   ('Marco', 'Rossi', '123456789', 'marco@hotmail.com', 'password123'),
@@ -28,7 +32,17 @@ VALUES
   ('Federico', 'Rizzo', '34567890', 'federico@gmail.com', 'password123'),
   ('Alessandro', 'Lombardi', '01234567', 'alessandro@hotmail.com', 'securepass'),
   ('Martina', 'Caruso', '56789012', 'martina@gmail.com', 'mypassword'),
-  ('Lorenzo', 'Barbieri', '12345678', 'lorenzo@outlook.com', '123456'),
+  ('Lorenzo', 'Barbieri', '123456780', 'lorenzo@outlook.com', '123456'),
   ('Camilla', 'Gatti', '78901234', 'camilla@hotmail.com', 'qwerty'),
   ('Nicola', 'Costa', '23456789', 'nicola@gmail.com', 'password'),
   ('Elisa', 'Rinaldi', '65432109', 'elisa@hotmail.com', 'abc123');
+
+/*Mostrar todos los registros*/
+SELECT * FROM usuarios;
+
+/*Modificar*/
+UPDATE usuarios SET usuarios.apellidos = 'Ferrarri' 
+WHERE usuarios.cedula = 45678901;
+
+/*Eliminar*/
+DELETE FROM usuarios WHERE usuarios.cedula = 65432109;
