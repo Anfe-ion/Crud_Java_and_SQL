@@ -19,6 +19,9 @@ public class FormUsuario extends javax.swing.JFrame {
         //Probando conexión
         /*Cconexion objetoConexion = new Cconexion();
         objetoConexion.estableceConexion();*/
+        
+        Cusuarios objetoUsuarios = new Cusuarios();
+        objetoUsuarios.MostrarUsuarios(tbUsuarios);
     }
 
     /**
