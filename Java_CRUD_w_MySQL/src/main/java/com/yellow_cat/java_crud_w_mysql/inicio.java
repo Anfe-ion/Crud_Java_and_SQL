@@ -10,4 +10,9 @@ package com.yellow_cat.java_crud_w_mysql;
  */
 public class inicio {
     
+    public static void main(String[] args) {
+        FormUsuario objetoFormulario = new FormUsuario();
+        objetoFormulario.setVisible(true);
+    }
+    
 }

@@ -11,6 +11,7 @@ package com.yellow_cat.java_crud_w_mysql;
 public class Java_CRUD_w_MySQL {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        FormUsuario objetoFormulario = new FormUsuario();
+        objetoFormulario.setVisible(true);
     }
 }
