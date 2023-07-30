@@ -29,7 +29,7 @@ public class Cconexion {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conectar  = DriverManager.getConnection(cadena, usuario, contrasenia);
-            JOptionPane.showMessageDialog(null,"La conexión se ha realizado con éxito");
+            //JOptionPane.showMessageDialog(null,"La conexión se ha realizado con éxito");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos. Error: "+ e.toString());
         }

@@ -103,6 +103,11 @@ public class FormUsuario extends javax.swing.JFrame {
 
         btnEliminar.setBackground(new java.awt.Color(255, 153, 153));
         btnEliminar.setLabel("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -263,6 +268,13 @@ public class FormUsuario extends javax.swing.JFrame {
         objetoUsuario.ModificarUsuarios(txtId, txtNombres, txtApellidos, txtCedula, txtCorreo_electronico, txtContraseña);
         objetoUsuario.MostrarUsuarios(tbUsuarios);        
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        Cusuarios objetoUsuario = new Cusuarios();
+        objetoUsuario.EliminarUsuarios(txtId);
+        objetoUsuario.MostrarUsuarios(tbUsuarios);   
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
     /**
      * @param args the command line arguments

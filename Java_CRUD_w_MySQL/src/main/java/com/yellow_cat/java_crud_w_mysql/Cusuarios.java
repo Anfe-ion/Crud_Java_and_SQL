@@ -235,4 +235,26 @@ public class Cusuarios {
         }
     }
     
+    public void EliminarUsuarios(JTextField paramId){
+        setId(Integer.parseInt(paramId.getText()));
+        
+        Cconexion objetoConexion = new Cconexion();
+        String consulta = "DELETE FROM usuarios WHERE usuarios.id = ?;";
+        
+        try {
+            
+            CallableStatement cs = objetoConexion.estableceConexion().prepareCall(consulta);
+            cs.setInt(1, getId());
+            
+            cs.execute();
+            
+            JOptionPane.showMessageDialog(null, "Se eliminó correctamente al usuario.");
+            
+        } catch (SQLException e) {
+            
+            JOptionPane.showMessageDialog(null, "No se puedo eliminar. Error: " + e.toString());
+        }
+        
+    }
+    
 }
