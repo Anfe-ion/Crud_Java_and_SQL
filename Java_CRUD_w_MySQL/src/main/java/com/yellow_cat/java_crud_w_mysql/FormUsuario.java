@@ -15,6 +15,10 @@ public class FormUsuario extends javax.swing.JFrame {
      */
     public FormUsuario() {
         initComponents();
+        //Para que se ejecute en el centro de la pantalla
+        this.setLocationRelativeTo(null);
+        //Para evitar la modificación del Id
+        txtId.setEnabled(false);
         
         //Probando conexión
         /*Cconexion objetoConexion = new Cconexion();
@@ -91,6 +95,11 @@ public class FormUsuario extends javax.swing.JFrame {
 
         btnModificar.setBackground(new java.awt.Color(255, 255, 204));
         btnModificar.setLabel("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setBackground(new java.awt.Color(255, 153, 153));
         btnEliminar.setLabel("Eliminar");
@@ -180,6 +189,11 @@ public class FormUsuario extends javax.swing.JFrame {
 
             }
         ));
+        tbUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbUsuariosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbUsuarios);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -230,11 +244,25 @@ public class FormUsuario extends javax.swing.JFrame {
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         Cusuarios objetoUsuario = new Cusuarios();
         objetoUsuario.InsertarUsuario(txtNombres, txtApellidos, txtCedula, txtCorreo_electronico, txtContraseña);
+        objetoUsuario.MostrarUsuarios(tbUsuarios);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void txtCorreo_electronicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreo_electronicoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreo_electronicoActionPerformed
+
+    private void tbUsuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbUsuariosMouseClicked
+        // TODO add your handling code here:
+        Cusuarios objetoUsuario = new Cusuarios();
+        objetoUsuario.SeleccionarUsuario(tbUsuarios, txtId, txtNombres, txtApellidos, txtCedula, txtCorreo_electronico, txtContraseña);
+    }//GEN-LAST:event_tbUsuariosMouseClicked
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        Cusuarios objetoUsuario = new Cusuarios();
+        objetoUsuario.ModificarUsuarios(txtId, txtNombres, txtApellidos, txtCedula, txtCorreo_electronico, txtContraseña);
+        objetoUsuario.MostrarUsuarios(tbUsuarios);        
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
